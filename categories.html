@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - ShopEase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: rgb(255, 99, 71); /* Tomato for vibrant header */
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .category {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            padding: 1rem;
+            width: 200px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .category img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .category h3 {
+            margin: 0.5rem 0;
+            color: rgb(255, 69, 0); /* OrangeRed for category titles */
+        }
+
+        footer {
+            background-color: #555; /* Medium gray for footer */
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Product Categories</h1>
+    </header>
+
+    <main>
+        <div class="categories">
+            <div class="category">
+                <img src="img.jpg" alt="Electronics">
+                <h3>Electronics</h3>
+                <p>Shop the latest gadgets and devices.</p>
+            </div>
+            <div class="category">
+                <img src="img2.jpg" alt="Fashion">
+                <h3>Fashion</h3>
+                <p>Trendy clothing and accessories for all.</p>
+            </div>
+            <div class="category">
+                <img src="img3.jpeg" alt="Home">
+                <h3>Home</h3>
+                <p>Furniture, decor, and more for your home.</p>
+            </div>
+            <div class="category">
+                <img src="img4.jpg" alt="Beauty">
+                <h3>Beauty</h3>
+                <p>Explore top beauty and skincare products.</p>
+            </div>
+            <div class="category">
+                <img src="img5.jpg" alt="Sports">
+                <h3>Sports</h3>
+                <p>Gear up for your favorite activities.</p>
+            </div>
+            <div class="category">
+                <img src="img6.avif" alt="Toys">
+                <h3>Toys</h3>
+                <p>Fun and educational toys for kids of all ages.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ShopEase. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
