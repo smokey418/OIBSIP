@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Temperature Converter</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+        }
+        .converter-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transition: transform 0.3s;
+        }
+        .converter-container:hover {
+            transform: scale(1.05);
+        }
+        .converter-container h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        .converter-container input, .converter-container select, .converter-container button {
+            width: 100%;
+            margin: 12px 0;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .converter-container input {
+            background: #f7f7f7;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .converter-container select {
+            background: #e0e0e0;
+        }
+        .converter-container button {
+            background: #ff6f61;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .converter-container button:hover {
+            background: #e64c3c;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="converter-container">
+    <h1>Interactive Temperature Converter</h1>
+    <input type="number" id="temperature" placeholder="Enter temperature" aria-label="Enter temperature">
+    <select id="unit">
+        <option value="CtoF">Celsius to Fahrenheit</option>
+        <option value="FtoC">Fahrenheit to Celsius</option>
+        <option value="CtoK">Celsius to Kelvin</option>
+        <option value="KtoC">Kelvin to Celsius</option>
+        <option value="FtoK">Fahrenheit to Kelvin</option>
+        <option value="KtoF">Kelvin to Fahrenheit</option>
+    </select>
+    <button onclick="convertTemperature()">Convert</button>
+    <div class="result" id="result"></div>
+    <div class="footer">Made with ❤️ for learning interactivity</div>
+</div>
+
+<script>
+    function convertTemperature() {
+        const temperature = parseFloat(document.getElementById('temperature').value);
+        const unit = document.getElementById('unit').value;
+        const resultElement = document.getElementById('result');
+
+        if (isNaN(temperature)) {
+            resultElement.textContent = 'Please enter a valid number.';
+            return;
+        }
+
+        let result;
+        switch (unit) {
+            case 'CtoF':
+                result = (temperature * 9 / 5) + 32;
+                resultElement.textContent = `${temperature} °C is equal to ${result.toFixed(2)} °F`;
+                break;
+            case 'FtoC':
+                result = (temperature - 32) * 5 / 9;
+                resultElement.textContent = `${temperature} °F is equal to ${result.toFixed(2)} °C`;
+                break;
+            case 'CtoK':
+                result = temperature + 273.15;
+                resultElement.textContent = `${temperature} °C is equal to ${result.toFixed(2)} K`;
+                break;
+            case 'KtoC':
+                result = temperature - 273.15;
+                resultElement.textContent = `${temperature} K is equal to ${result.toFixed(2)} °C`;
+                break;
+            case 'FtoK':
+                result = (temperature - 32) * 5 / 9 + 273.15;
+                resultElement.textContent = `${temperature} °F is equal to ${result.toFixed(2)} K`;
+                break;
+            case 'KtoF':
+                result = (temperature - 273.15) * 9 / 5 + 32;
+                resultElement.textContent = `${temperature} K is equal to ${result.toFixed(2)} °F`;
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>
